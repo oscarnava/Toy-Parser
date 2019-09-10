@@ -1,0 +1,9 @@
+<% colors = ['Red','Green','Blue'] %>
+<h1>Welcome to the Sample App</h1>
+<h2>
+  This is the home page for the sample application.
+  Color names:
+  <ul>
+    <%= colors.map { |color| "<li>#{color}</li>\n" }.join %>
+  </ul>
+</h2>
