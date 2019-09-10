@@ -5,15 +5,19 @@ The whole parser is contained in a class named **ERBParser** and the demo consis
 
 Basic usage:
 
-```puts ERBParser.new('master.html.erb') << 'template.html.erb' << 'subtemplate.html.erb'```
+```ruby
+puts ERBParser.new('master.html.erb') << 'template.html.erb' << 'subtemplate.html.erb'
+```
 
 This line will output the contents of '_**master**_', yielding in it the contents of '_**template**_', which in turn yields the contents of '_**subtemplate**_'
 
 Not supported in this version:
 * Multiline statements like
-``` 
+
+```erb
 <% 10.times do %>
    .
    .
    .
-<% end %>```
+<% end %>
+```
