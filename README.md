@@ -3,7 +3,7 @@ This is a very basic class which function is to parse an **.html.erb** file. Its
 
 The whole parser is contained in a class named **ERBParser** and the demo consists of a main template _**master.html.erb**_, an included template _**template.html.erb**_ and a sub-template _**subtemplate.html.erb**_.
 
-Basic usage:
+## Basic usage:
 
 ```ruby
 puts ERBParser.new('master.html.erb') << 'template.html.erb' << 'subtemplate.html.erb'
@@ -11,7 +11,7 @@ puts ERBParser.new('master.html.erb') << 'template.html.erb' << 'subtemplate.htm
 
 This line will output the contents of '_**master**_', yielding in it the contents of '_**template**_', which in turn yields the contents of '_**subtemplate**_'
 
-Not supported in this version:
+### Not supported in this version:
 * Multiline statements like
 
 ```erb
