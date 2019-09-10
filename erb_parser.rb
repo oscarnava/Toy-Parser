@@ -8,12 +8,14 @@ class ERBParser
     else
       template
     end
+    @template = template
     @subtemplate = nil
+    @cache = nil
   end
 
   def parse
     context = binding
-    @contents.gsub!(/<%([=#])?(.*)%>/) do
+    @cache = @contents.gsub(/<%([=#])?(.*)%>/) do
       cmd = $2.strip
       case $1
       when '='
@@ -25,7 +27,6 @@ class ERBParser
         ''
       end
     end #.gsub(/>\s+</,'><')
-    @contents
   end
 
   def <<(template)
@@ -37,16 +38,18 @@ class ERBParser
     self
   end
 
+  def inspect
+    "ERBParser('#{@template}') -> #{@subtemplate.inspect}"
+  end
+
   def to_s
-    parse {
+    @cache || parse do
       if @subtemplate
         @subtemplate.to_s
       else
         '<!-- Nothing to yield! -->'
       end
-    }
+    end
   end
 
 end
-
-puts ERBParser.new('master.html.erb') << 'template.html.erb' << 'subtemplate.html.erb'
