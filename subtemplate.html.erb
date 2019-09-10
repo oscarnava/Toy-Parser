@@ -1,5 +1,5 @@
 <% colors = ['Red','Green','Blue'] %>
-Color names:
+<h3>Color names:</h3>
 <ul>
-  <%= colors.map { |color| "<li>#{color}</li>" }.join %>
+<%= colors.map { |color| "  <li>#{color}</li>\n" }.join %>
 </ul>
